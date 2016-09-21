@@ -38,11 +38,6 @@ def read_msh(filename):
     topo = np.array(topo)
     topo = topo - 1
 
-    print b_nodes.shape
-    print b_nodes[0:5]
-    print topo.shape
-    print topo[0:5]
-
     r_id = 0
     for row in topo:
         ck =      (x[row[1]]-x[row[0]])*(y[row[2]]-y[row[0]])
