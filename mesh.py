@@ -3,7 +3,7 @@ import numpy as np
 def read_msh(filename):
 
     """ read mesh code """
-    meshfile = open('mesh/square.msh', 'r')
+    meshfile = open(filename, 'r')
     x = np.array([])
     y = np.array([])
     b_nodes = []
@@ -37,10 +37,6 @@ def read_msh(filename):
     b_nodes = np.array(b_nodes)
     topo = np.array(topo)
     topo = topo - 1
-
-    print b_nodes.shape
-    print b_nodes[0:5]
-    print topo.shape
     print topo[0:5]
 
     r_id = 0
