@@ -3,17 +3,12 @@ import numpy as np
 
 def gradu_gradv(topo,x,y):
     """ A assembly code """
-    print topo
     A = np.zeros((x.shape[0], x.shape[0]))
-    print A
-    print x
 
     for element in topo:
-        print element
         x_l = x[element]
         y_l = y[element]
 
-        print x_l
 
         (dx_phi, dy_phi, phi, surf_e) = tri_p1(x_l, y_l, np.zeros((1, 2)))
         local_A = np.zeros((3, 3))
