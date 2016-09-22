@@ -7,7 +7,7 @@ def read_msh(filename):
     x = np.array([])
     y = np.array([])
     b_nodes = []
-    topo = []
+    topo = np.array([], dtype=np.int_)
     for line in meshfile:
         if line[0] == '$':
             continue
@@ -29,15 +29,15 @@ def read_msh(filename):
         if len(l) == 8:
             #topo
             ##check to not overlap them
-            if [l[5], l[6], l[7]] not in topo:
-                topo.append([l[5], l[6], l[7]])
+            nd = map(int, l[5:])
+            topo = np.append(topo, nd)
             # i'm interested in the last 3 numbers
     meshfile.close()
             
     b_nodes = np.array(b_nodes)
-    topo = np.array(topo)
     topo = topo - 1
-    print topo[0:5]
+    print topo.shape
+    topo = np.reshape(topo, (len(topo)/3, 3))
 
     r_id = 0
     for row in topo:

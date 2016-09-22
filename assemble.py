@@ -10,8 +10,8 @@ def gradu_gradv(topo,x,y):
 
     for element in topo:
         print element
-        x_l = x[element.tolist()]
-        y_l = y[element.tolist()]
+        x_l = x[element]
+        y_l = y[element]
 
         print x_l
 
